@@ -11,23 +11,34 @@ public class Main1 {
 정수 배열 numbers가 주어진다.
 이 배열에서 서로 다른 두 수를 더해서 만들 수 있는 모든 합을 구한 뒤,
 중복을 제거하고 오름차순으로 정렬한 배열을 반환하라.
+
+이중반복문
+중복을 없애기 위해 set
+리스트로 정렬
+출력 배열 
  * */
 	public int[] solution(int[] numbers) {
 		
-		Set<Integer> retSet = new HashSet<>();
-		
-		for(int i = 0; i < numbers.length; i++) {
-			for(int j = i+1; j < numbers.length; j++) {
-				retSet.add(numbers[i]+numbers[j]);
-			}
-		}
-		
-		List<Integer> list = new ArrayList<>(retSet);
-		Collections.sort(list);
-		
-		int[] answer = new int[list.size()];
-		for(int i = 0; i < list.size(); i++) {
-			answer[i] = list.get(i);
+	    Set<Integer> intSet = new HashSet<>();
+	    int sum = 0;
+	    
+	    // 반복문에서 합을 구하고 에
+	    for(int i = 0; i < numbers.length; i++) {
+	    	for(int j = i; j < numbers.length; j++) {
+	    		sum = numbers[i] + numbers[j];
+	    		intSet.add(sum);
+	    	}
+	    }
+	    
+	    // 리스트를 오름차순으로 정렬하고
+	    List<Integer> intList = new ArrayList<>(intSet);
+	    Collections.sort(intList);
+	    
+	    
+	    // 배열에 담아서 반
+		int[] answer = new int[intList.size()];
+		for(int i = 0; i < answer.length; i++) {
+			answer[i] = intList.get(i);
 		}
 		
 		return answer;
