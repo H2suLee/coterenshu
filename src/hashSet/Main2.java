@@ -34,17 +34,17 @@ public class Main2 {
 		
 		Set<Integer> set = new HashSet<>();
 		
-		// Set에 담아서 중복을 제
+		// Set에 담아서 중복을 제거 -> add 연산 평균 상수시간 소요, 시간복잡도는 O(n)
 		for(int n : nums) {
 			set.add(n);
 		}
 		
-		// Set을 Collections 를 통해 정렬
+		// Set을 Collections 를 통해 정렬  -> 정렬에 대해 시간복잡도는 O(n log n)
 		List<Integer> list = new ArrayList<>(set); 
 		Collections.sort(list);
 		
 		
-		// 반환을 위해 배열에 담
+		// 반환을 위해 배열에 담음 -> 배열에 담는 과정에서 get연산이 평균 상수시간 소요하므로 시간 복잡도는 O(n) -> 결론적으로 전체 시간복잡도는 n log n
 		nums = new int[list.size()];
 		for(int i = 0 ; i < list.size(); i++) {
 			nums[i] = list.get(i);

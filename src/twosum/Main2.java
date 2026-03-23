@@ -1,9 +1,9 @@
-package hashSet;
+package twosum;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Main1 {
+public class Main2 {
 
 	/*
 	문제 3 (Two Sum / HashMap or Set)
@@ -61,7 +61,7 @@ public class Main1 {
 		//Scanner sc = new Scanner(System.in);
 		//String input = sc.nextLine();
 		
-		Main1 sol = new Main1();
+		Main2 sol = new Main2();
 		
 		int[] array = {1,2,3};
 		int target = 7;

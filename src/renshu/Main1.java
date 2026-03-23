@@ -11,6 +11,10 @@ public class Main1 {
 정수 배열 numbers가 주어진다.
 이 배열에서 서로 다른 두 수를 더해서 만들 수 있는 모든 합을 구한 뒤,
 중복을 제거하고 오름차순으로 정렬한 배열을 반환하라.
+
+ “이중 반복문을 통해 모든 두 수의 합을 구하므로 O(n²)이고, 이후 Set을 리스트로 변환하여 정렬하는 과정이 O(m log m)입니다. m은 최대 n²이므로 전체 시간복잡도는 O(n² log n)입니다.”
+ n2 = m 일때 O(n2) + O(m log m) = O(n2 log n)
+ * 
  * */
 	public int[] solution(int[] numbers) {
 		

@@ -17,7 +17,8 @@ public class Main2 {
 	괄호가 올바르게 짝지어져 있으면 true,
 	아니면 false를 반환하라.
 
-
+	*/
+	/*
 	[예시]
 	입력: "()"
 	출력: true

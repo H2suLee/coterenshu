@@ -28,19 +28,39 @@ public class Main3 {
 
 	public String solution(String input) {
 		
-		// 접두사를 담을셋
-		//Set<String> set = new HashSet<>();
-		
-		// 팰린드롬을 확인할 스택
-		Stack<Character> stack = new Stack<>();
+		// 접두사를 담을 String
+		// levelup -> l, le, lev, leve, level, levelu, levelup
+		String prefix = "";
+		String answer = "";
 		
 		for(char c : input.toCharArray()) {
-			stack.push(c);
+			
+			prefix += c;
+			
+			if(isPal(prefix)) {
+				answer = prefix;
+			}
+			
 		}
 		
+		return answer;
+	}
+	
+	public boolean isPal(String prefix) {
 		
+		Stack<Character> stack = new Stack<>();
 		
-		return "";
+		for(char x : prefix.toCharArray()) {
+			stack.push(x);
+		}
+
+		for(char y : prefix.toCharArray()) {
+			if(!stack.isEmpty() && y != stack.pop()) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	public static void main(String[] args) {
