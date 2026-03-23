@@ -1,9 +1,7 @@
 package twosum;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Main1 {
 
@@ -18,27 +16,25 @@ public class Main1 {
 	정답은 하나만 존재한다고 가정한다.
 	*/
 	public int[] solution(int[] nums, int target) {
-		int[] answer = new int[2];
 		
-		// target - num[i] 의 값이 map 에 존재하는 지를 검사
-		Set<Integer> set = new HashSet<Integer>();
-		
-		List<Integer> list = new ArrayList<>();
+		// target - num[i] 의 값이 Map 에 존재하는 지를 검사
+		Map<Integer, Integer> map = new HashMap<>();
 		
 		for(int i = 0; i<nums.length; i++) {
 			
 			
-			if(list.contains(target - nums[i])) {
-				list.
+			if(map.containsKey(target - nums[i])) {
+				
+				return new int[] {i, map.get(target-nums[i])};
+				
 			}
 			
-			list.add(nums[i]);
-			
+			map.put(nums[i], i);
 			
 		}
 		
-
-		return answer;
+		
+		return new int[] {};
 	}
 
 	public static void main(String[] args) {
