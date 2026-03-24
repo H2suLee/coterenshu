@@ -1,8 +1,5 @@
 package sliding;
 
-import java.util.Scanner;
-import java.util.Stack;
-
 public class Main1 {
 
 	/*
@@ -37,14 +34,37 @@ public class Main1 {
 	[목표]
 	- 투포인터 / 슬라이딩 윈도우 사용
 	*/
+	/*
+	 * 
+	    이 문제는 배열에서 연속된 부분 배열의 합이 target 이상이 되는 가장 짧은 길이를 구하는 문제로, 슬라이딩 윈도우(투포인터)를 사용해 O(N)에 해결합니다.
+
+		right 포인터를 이동시키며 합(sum)을 늘리고, sum >= target이 되는 순간 해당 구간은 유효하므로 길이를 갱신합니다. 이후 left를 이동시키며 합을 줄이면서 더 짧은 구간이 가능한지 확인합니다. 이 과정을 반복하며 최소 길이를 찾습니다.
+		
+		시간복잡도는 left, right가 각각 최대 N번 이동하므로 O(N), 입출력 외 추가적인 메모리를 안쓰기 때문에 공간복잡도는 O(1)입니다.
+		조건을 만족하는 구간이 없으면 0을 반환합니다.
+		
+	 * */
 	
 	public int solution(int[] array, int target) {
 		
-		for(int n : array) {
+		int left = 0;
+		int min  = Integer.MAX_VALUE;
+		int sum = 0;
+		for(int right=0; right < array.length; right++) {
+			
+			sum += array[right];
+			
+			while(sum>=target) {
+				min = Math.min(min, right - left + 1); // 줄이기 전에 갱
+				sum -= array[left];
+				left++;
+				
+			}
 			
 		}
+			
 		
-		return 0;
+		return min==Integer.MAX_VALUE?0:min;
 	}
 
 	public static void main(String[] args) {
@@ -54,7 +74,7 @@ public class Main1 {
 		
 		Main1 sol = new Main1();
 
-		int[] array = {4,3};
+		int[] array = {2,3,1,2,4,3};
 		int target = 7;
 		System.out.println(sol.solution(array, target));
 
