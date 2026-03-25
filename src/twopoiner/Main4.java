@@ -1,4 +1,4 @@
-package sliding;
+package twopoiner;
 
 public class Main4 {
 
